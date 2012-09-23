@@ -5,11 +5,14 @@
 ## Notes: Personal bindings for oBindings by haste
 
 oBindings\bindings.lua
-oBindings\blizzard.lua
 
 bindings\base.lua
 bindings\druid.lua
 bindings\rogue.lua
+bindings\mage.lua
+bindings\paladin.lua
+bindings\priest.lua
+bindings\warrior.lua
 
 possess.lua
 extra.lua
