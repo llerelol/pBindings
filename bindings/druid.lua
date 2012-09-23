@@ -1,4 +1,4 @@
-﻿if(select(2, UnitClass'player') ~= 'DRUID') then return end
+if(select(2, UnitClass('player')) ~= 'DRUID') then return end
 
 local __, bindings = ...
 --[[ druid actionbars 1-12 | 13-24 | 25-36 | 37-48 | 48-59 | 60-71 | 72-83(cat form) | 84-95 | 96-107(bear form) | 108-119(moonkin) ]]--
