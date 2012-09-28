@@ -7,12 +7,13 @@
 oBindings\bindings.lua
 
 bindings\base.lua
-bindings\druid.lua
-bindings\rogue.lua
+bindings\warrior.lua
+bindings\priest.lua
 bindings\mage.lua
 bindings\paladin.lua
-bindings\priest.lua
-bindings\warrior.lua
+bindings\rogue.lua
+bindings\druid.lua
+bindings\monk.lua
 
 possess.lua
 extra.lua
