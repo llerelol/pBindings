@@ -7,7 +7,6 @@ local warbase = {
 	T = 'm|/tar Деморализующее знамя\n/tar Знамя с черепом\n/tar Издевательское знамя\n/cast [help] Вмешательство\n/targetlasttarget\n/cast !Издевательское знамя',
 	G = 'm|/cast Верная победа\n/cast Победный раж',
 	B = 's|Устрашающий крик',
-	Q = 'm|/startattack\n/cast Удар героя',
 	V = 'm|/startattack\n/cast Рассекающий удар',
 	X = 'm|/cast !Героический прыжок',
 	F = 'm|/cast Разрушительный крик\n/cast Пронзительный вой\n/cast Ошеломляющий крик',
@@ -74,6 +73,7 @@ local prot = {
 	
 	C = 's|Провокация',
 	E = 'm|/startattack\n/cast Сокрушение',
+	Q = 'm|/startattack\n/cast Удар героя',
 	
 	shift = {
 		[5] = 's|Казнь',
@@ -81,13 +81,14 @@ local prot = {
 }
 
 local arms = {
-	'm|/startattack\n/cast Удар колосса',
+	'm|/startattack\n/cast Удар героя',
 	'm|/cast Обезоруживание',
 	'm|/startattack\n/cast Превосходство',
-	'm|/startattack\n/cast Мощный удар',
+	'm|/startattack\n/cast Удар колосса',
 	'm|/startattack\n/cast Казнь',
 	C = 's|Вихрь',
 	E = 'm|/startattack\n/cast Смертельный удар',
+	Q = 'm|/startattack\n/cast Мощный удар',
 	
 	shift = {
 		[5] = 's|Удар грома',
@@ -102,6 +103,7 @@ local fury = {
 	'm|/startattack\n/cast Казнь',
 	C = 's|Вихрь',
 	E = 'm|/startattack\n/cast Кровожадность',
+	Q = 'm|/startattack\n/cast Удар героя',
 	
 	shift = {
 		[5] = 's|Удар грома',
