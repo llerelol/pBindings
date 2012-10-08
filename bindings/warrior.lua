@@ -4,13 +4,13 @@ local __, bindings = ...
 
 local warbase = {
 	R = 'm|/startattack\n/cast Рывок',
-	T = 'm|/cast !Героический прыжок',
+	T = 'm|/tar Деморализующее знамя\n/tar Знамя с черепом\n/tar Издевательское знамя\n/cast [help] Вмешательство\n/targetlasttarget\n/cast !Издевательское знамя',
 	G = 'm|/cast Верная победа\n/cast Победный раж',
 	B = 's|Устрашающий крик',
 	Q = 'm|/startattack\n/cast Удар героя',
 	V = 'm|/startattack\n/cast Рассекающий удар',
-	X = 's|Глухая оборона',
-	F = 'm|/cast Ударная волна\n/cast Вихрь клинков\n/cast Рев дракона',
+	X = 'm|/cast !Героический прыжок',
+	F = 'm|/cast Разрушительный крик\n/cast Пронзительный вой\n/cast Ошеломляющий крик',
 	
 	F1 = 's|Боевая стойка',
 	F2 = 's|Стойка берсерка',
@@ -18,16 +18,17 @@ local warbase = {
 	F4 = 's|Искупление',
 	TAB = 's|Ярость берсерка',
 	BUTTON3 = 's|/use 13',
-	BUTTON4 = 's|Благословение королей',
-	BUTTON5 = 's|Благословение могущества',
 	
+	--naga
+	NUMPAD1 = 'm|/cast Ударная волна\n/cast Вихрь клинков\n/cast Рев дракона',
 	NUMPAD2 = 's|Зуботычина',
+	DOWN = 'm|/cast [@focus,exists,nodead,harm] Зуботычина; Зуботычина',
 	NUMPAD3 = 'm|/cast [@party1,exists,help,nodead,mod:ctrl][@party2,exists,help,nodead,mod:alt][@mouseover,exists,help,nodead][@targettarget,exists,help][] Вмешательство',
-	PAGEDOWN = 'm|/cast [@focus,exists,help,nodead] Вмешательство',
+	PAGEDOWN = 'm|/cast [@healer,exists,help,nodead] Вмешательство',
 	NUMPAD4 = 's|Отражение заклинания',
 	LEFT = 's|Массовое отражение заклинания',
 	NUMPAD5 = 's|Смертельное спокойствие',
-	NUMPAD6 = 'm|/cast Кровавое неистовство\n/use 14\n/cast Безрассудство',
+	NUMPAD6 = 'm|/cast Кровавое неистовство\n/use 14\n/cast Безрассудство\n/cast',
 	NUMPAD7 = 'm|/cast Стремительный лесной волк',
 	NUMPAD8 = 'm|/cast Обсидиановое крыло ночи',
 	
@@ -39,10 +40,10 @@ local warbase = {
 		's|Сокрушительный бросок',
 		'm|/cast [@focus] Обезоруживание',
 		'm|/cast Героический бросок',
-		'm|/cast Аватара\n/cast Удар громовержца',
+		's|Ободряющий клич',
 		G = 'm|/cast Безудержное восстановление',
 		E = 's|Подрезать сухожилия',
-		F = 'm|/cast Разрушительный крик\n/cast Пронзительный вой\n/cast Ошеломляющий крик',
+		F = 'm|/cast Аватара\n/cast Удар громовержца',
 		C = 's|Размашистые удары',
 		
 		SPACE = 'm|/use 8',
@@ -60,7 +61,7 @@ local warbase = {
 	},
 	alt = {
 		Q = 'm|/cast Бой насмерть\n/cast Ни шагу назад',
-		E = 's|Ободряющий клич',
+		E = 's|Глухая оборона',
 	},
 }
 
