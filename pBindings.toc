@@ -14,6 +14,7 @@ bindings\paladin.lua
 bindings\rogue.lua
 bindings\druid.lua
 bindings\monk.lua
+bindings\shaman.lua
 
 possess.lua
 extra.lua
