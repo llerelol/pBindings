@@ -35,7 +35,7 @@ local druidbase = {
 	G = 's|Спокойствие',
 	V = 'm|/cast Мощное оглушение\n/cast Вихрь Урсола\n/cast Дезориентирующий рык',
 	B = 's|Природная стремительность',
-	F1 = 'm|/script SetRaidTarget("Лиару", 2)\n/script SetRaidTarget("Вердарис", 6)\n/script SetRaidTarget("Целестайн", 8)',
+	F1 = 'm|/script SetRaidTarget("Лиару", 2)\n/script SetRaidTarget("Вердарис", 6)\n/script SetRaidTarget("Целестайн", 8)\n/script SetRaidTarget("Мэдсикер", 3)\n/script SetRaidTarget("Слоули", 6)\n/script SetRaidTarget("Акиноджина", 3)',
 	F3 = 'm|/focus [@mouseover][@target]',
 	F4 = 's|Оживление',
 	F5 = 's|Телепортация: Лунная поляна',
@@ -46,7 +46,7 @@ local druidbase = {
 	
 	-- naga
 	NUMPAD1 = 's|Крадущийся зверь',
-	END = 'm|/cast [@Целестайн,exists] Озарение\n/cast [@Акиноджина,exists] Озарение',
+	END = 'm|/cast [@Целестайн,exists] Озарение\n/cast [@Акиноджина,exists] Озарение\n/cast [@Слоули,exists] Озарение',
 	-- NUMPAD2 spec specific
 	NUMPAD3 = 'm|/focus [@mouseover,exists,nodead][]',
 	PAGEDOWN = 's|Тайфун',
@@ -56,7 +56,7 @@ local druidbase = {
 	F6 = 's|Облик кошки', -- num5
 	NUMPAD6 = 's|Облик медведя',
 	RIGHT = 'm|/cast [@arena3,harm,nodead] Смерч',
-	NUMPAD7 = 'm|/cast Белый боевой конь-скелет\n/cast Боевой скакун грозовой вершины',
+	NUMPAD7 = 'm|/cast Огненный боевой конь\n/cast Боевой скакун грозовой вершины',
 	NUMPAD8 = 's|Облик стремительной птицы',
 	NUMPAD9 = 's|Водный облик',
 	NUMPADPLUS = 'm|/use 15',
@@ -102,6 +102,9 @@ local druidbase = {
 		'm|/cast [@Целестайн,exists,help] Целительное прикосновение\n/cast [@Всекало,exists,help] Целительное прикосновение',
 		E = 's|Порыв',
 		Q = 's|Дубовая кожа',
+		NUMPAD4 = 'm|/cast [@arena1,harm,nodead] Спячка',
+		F6 = 'm|/cast [@arena2,harm,nodead] Спячка', -- num5
+		NUMPAD6 = 'm|/cast [@arena3,harm,nodead] Спячка',
 	},
 }
 
@@ -118,11 +121,18 @@ local feral = {
 		'm|/startattack [nostealth]\n/cast [nostealth] Разорвать; [stealth] Наскок',
 		's|Калечение',
 	},
+	bear = {
+		'm|/castsequence reset=6 Увечье,Растерзать,Взбучка,Растерзать',
+		's|Неистовое восстановление',
+		's|Увечье',
+		's|Трепка',
+		's|Растерзать',
+	},
 	Q = 'm|/startattack [nostealth]\n/cast [noform:3] Облик кошки\n/cast [stealth,form:3] Наскок; [form:3] Накинуться',
 	E = 'm|/startattack [nostealth]\n/cast [noform:3] Облик кошки\n/cast [stealth,form:3] Накинуться; [form:3] Полоснуть',
 	T = 's|Волшебный огонь',
 	R = 'm|/cast [noform:3] Облик кошки; Дикий рев',
-	F = 'm|/use 10\n/cast Тигриное неистовство',
+	F = 'm|/use 10\n/use 14\n/cast Тигриное неистовство',
 	
 	NUMPAD2 = 's|Лобовая атака',
 	DOWN = 'm|/cast [@focus,exists,harm,nodead] Лобовая атака',
@@ -134,45 +144,65 @@ local feral = {
 		E = 'm|/cast [@mouseover,help,nodead][help,nodead][@player] Снятие порчи',
 		R = 's|Взбучка',
 		T = 'm|/startattack [nostealth]\n/cast Наскок',
-		F = 'm|/cast Тигриное неистовство\n/use 14\n/cast Берсерк\n/cast Природная чуткость\n/cast Перевоплощение: Король джунглей',
+		F = 'm|/cast Тигриное неистовство\n/use 10\n/use 14\n/cast Берсерк\n/cast Природная чуткость\n/cast Перевоплощение: Король джунглей',
 		X = 's|Инстинкты выживания',
-		MOUSEWHEELUP = 'm|/cast [@Вердарис,help,nodead,exists] Снятие порчи\n/cast [@Акиноджина,help,nodead,exists] Снятие порчи',
-		MOUSEWHEELDOWN = 'm|/cast [@Целестайн,help,nodead] Снятие порчи\n/cast [@Всекало,help,nodead] Снятие порчи',
+		MOUSEWHEELUP = 'm|/cast [@Вердарис,help,nodead,exists] Снятие порчи\n/cast [@Акиноджина,help,nodead,exists] Снятие порчи\n/cast [@Слоули,help,nodead,exists] Снятие порчи',
+		MOUSEWHEELDOWN = 'm|/cast [@Целестайн,help,nodead] Снятие порчи\n/cast [@Всекало,help,nodead] Снятие порчи\n/cast [@Мэдсикер,help,nodead,exists] Снятие порчи',
 	},
 	ctrl = {
 		NUMPAD2 = 's|Тайфун',
-		C = 'm|/cancelform\n/cast [@Акиноджина,exists] Стремительный рывок\n/cast [@Целестайн,exists] Стремительный рывок',
+		C = 'm|/cancelform\n/cast [@Акиноджина,exists] Стремительный рывок\n/cast [@Целестайн,exists] Стремительный рывок\n/cast [@Слоули,exists] Стремительный рывок',
 		F = 'm|/cast Перевоплощение\n/cast Сила природы',
+		T = 'm|/castsequence reset=6 Взбучка,Размах,Увечье,Размах',
 	},
 }
 
 local guardian = {
-	bear = {
-		's|Медвежьи объятия',
-		's|Дикая защита',
-		's|Волшебный огонь',
-		's|Растерзать',
-		's|Рык',
-		Q = 's|Трепка',
-		E = 'm|/cast [nostealth] Увечье;[stealth] Накинуться',
-		R = 'm|/castsequence reset=6 Взбучка,Размах,Увечье,Размах',
-		F = 's|Берсерк',
-		T = 's|Размах',
+	'm|/startattack [nostealth]\n/cast [noform] Облик кошки; Глубокая рана',
+	'm|/cast [noform] Облик кошки; Свирепый укус',
+	'm|/startattack [nostealth]\n/cast [noform] Облик кошки\n/cast [stealth,form:3] Наскок; [form:3] Увечье',
+	'm|/startattack [nostealth]\n/cast [noform] Облик кошки\n/cast [stealth,form:3] Наскок; [form:3] Разорвать',
+	'm|/cast [noform] Облик кошки; Калечение',
+	cat = {
+		'm|/startattack [nostealth]\n/cast Глубокая рана',
+		's|Свирепый укус',
+		'm|/startattack [nostealth]\n/cast [nostealth] Увечье; [stealth] Наскок',
+		'm|/startattack [nostealth]\n/cast [nostealth] Разорвать; [stealth] Наскок',
+		's|Калечение',
 	},
-	's|Медвежьи объятия',
-	's|Дикая защита',
-	's|Волшебный огонь',
-	's|Растерзать',
-	's|Рык',
-	NUMPAD2 = 's|Лобовая атака',
+	bear = {
+		'm|/castsequence reset=6 Увечье,Растерзать,Взбучка,Растерзать',
+		's|Неистовое восстановление',
+		's|Увечье',
+		's|Исступление',
+		's|Медвежьи объятия',
+	},
 	Q = 's|Трепка',
-	E = 'm|/cast [nostealth] Увечье;[stealth] Накинуться',
-	R = 'm|/castsequence reset=6 Взбучка,Размах,Увечье,Размах',
-	F = 's|Берсерк',
-	T = 's|Размах',
+	E = 's|Увечье',
+	T = 's|Волшебный огонь',
+	R = 's|Дикая защита',
+	F = 'm|/use 10\n/cast Перевоплощение: Дитя Урсока',
+	
+	NUMPAD2 = 's|Лобовая атака',
+	DOWN = 'm|/cast [@focus,exists,harm,nodead] Лобовая атака',
+	
+	['`'] = 'm|/cast Рык\n/cast Волшебный огонь',
+	['¸'] = 'm|/cast Рык\n/cast Волшебный огонь',
+	
 	shift = {
-		R = 's|Исступление',
+		E = 'm|/cast [@mouseover,help,nodead][help,nodead][@player] Снятие порчи',
+		R = 's|Взбучка',
+		T = 'm|/startattack [nostealth]\n/cast Наскок',
+		F = 's|Сердце дикой природы',
+		X = 's|Инстинкты выживания',
+		MOUSEWHEELUP = 'm|/cast [@Вердарис,help,nodead,exists] Снятие порчи\n/cast [@Акиноджина,help,nodead,exists] Снятие порчи\n/cast [@Слоули,help,nodead,exists] Снятие порчи',
+		MOUSEWHEELDOWN = 'm|/cast [@Целестайн,help,nodead] Снятие порчи\n/cast [@Всекало,help,nodead] Снятие порчи\n/cast [@Мэдсикер,help,nodead,exists] Снятие порчи',
+	},
+	ctrl = {
+		NUMPAD2 = 's|Тайфун',
+		C = 'm|/cancelform\n/cast [@Акиноджина,exists] Стремительный рывок\n/cast [@Целестайн,exists] Стремительный рывок\n/cast [@Слоули,exists] Стремительный рывок',
 		F = 'm|/cast Перевоплощение\n/cast Сила природы',
+		T = 'm|/castsequence reset=6 Взбучка,Размах,Увечье,Размах',
 	},
 }
 local resto = {
