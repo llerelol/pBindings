@@ -35,7 +35,7 @@ local druidbase = {
 	G = 's|Спокойствие',
 	V = 'm|/cast Мощное оглушение\n/cast Вихрь Урсола\n/cast Дезориентирующий рык',
 	B = 's|Природная стремительность',
-	F1 = 'm|/script SetRaidTarget("Лиару", 2)\n/script SetRaidTarget("Вердарис", 6)\n/script SetRaidTarget("Целестайн", 8)\n/script SetRaidTarget("Мэдсикер", 3)\n/script SetRaidTarget("Слоули", 6)\n/script SetRaidTarget("Акиноджина", 3)',
+	F1 = 'm|/script SetRaidTarget("Лиару", 2)\n/script SetRaidTarget("Пьедра", 6)\n/script SetRaidTarget("Амандус", 8)\n/script SetRaidTarget("Мэдсикер", 3)\n/script SetRaidTarget("Слоули", 6)\n/script SetRaidTarget("Акиноджина", 3)',
 	F3 = 'm|/focus [@mouseover][@target]',
 	F4 = 's|Оживление',
 	F5 = 's|Телепортация: Лунная поляна',
@@ -56,7 +56,7 @@ local druidbase = {
 	F6 = 's|Облик кошки', -- num5
 	NUMPAD6 = 's|Облик медведя',
 	RIGHT = 'm|/cast [@arena3,harm,nodead] Смерч',
-	NUMPAD7 = 'm|/cast Огненный боевой конь\n/cast Боевой скакун грозовой вершины',
+	NUMPAD7 = 'm|/cast Огненный боевой конь',
 	NUMPAD8 = 's|Облик стремительной птицы',
 	NUMPAD9 = 's|Водный облик',
 	NUMPADPLUS = 'm|/use 15',
@@ -77,8 +77,8 @@ local druidbase = {
 		C = 's|Тревожный рев',
 		T = 'm|/cast [@mouseover,help,nodead][help,nodead][@player] Возрождение',
 		
-		MOUSEWHEELUP = 'm|/cast [@Вердарис,help,nodead] Природный целитель',
-		MOUSEWHEELDOWN = 'm|/cast [@Целестайн,help,nodead] Природный целитель',
+		MOUSEWHEELUP = 'm|/cast [@Пьедра,help,nodead] Природный целитель',
+		MOUSEWHEELDOWN = 'm|/cast [@Амандус,help,nodead] Природный целитель',
 		SPACE = 'm|/use 6',
 		F6 = 'm|/cast [@arena2,harm,nodead] Смерч', --num5
 	},
@@ -98,8 +98,8 @@ local druidbase = {
 	},
 	alt = {
 		's|Симбиоз',
-		'm|/cast [@Вердарис,exists,help] Целительное прикосновение\n/cast [@Акиноджина,exists,help] Целительное прикосновение',
-		'm|/cast [@Целестайн,exists,help] Целительное прикосновение\n/cast [@Всекало,exists,help] Целительное прикосновение',
+		'm|/cast [@Вердарис,exists,help] Целительное прикосновение\n/cast [@Пьедра,exists,help] Целительное прикосновение',
+		'm|/cast [@Целестайн,exists,help] Целительное прикосновение\n/cast [@Амандус,exists,help] Целительное прикосновение',
 		E = 's|Порыв',
 		Q = 's|Дубовая кожа',
 		NUMPAD4 = 'm|/cast [@arena1,harm,nodead] Спячка',
@@ -144,10 +144,10 @@ local feral = {
 		E = 'm|/cast [@mouseover,help,nodead][help,nodead][@player] Снятие порчи',
 		R = 's|Взбучка',
 		T = 'm|/startattack [nostealth]\n/cast Наскок',
-		F = 'm|/cast Тигриное неистовство\n/use 10\n/use 14\n/cast Берсерк\n/cast Природная чуткость\n/cast Перевоплощение: Король джунглей',
+		F = 'm|/cast Тигриное неистовство\n/use 14\n/use 10\n/cast Берсерк\n/cast Природная чуткость\n/cast Перевоплощение: Король джунглей',
 		X = 's|Инстинкты выживания',
-		MOUSEWHEELUP = 'm|/cast [@Вердарис,help,nodead,exists] Снятие порчи\n/cast [@Акиноджина,help,nodead,exists] Снятие порчи\n/cast [@Слоули,help,nodead,exists] Снятие порчи',
-		MOUSEWHEELDOWN = 'm|/cast [@Целестайн,help,nodead] Снятие порчи\n/cast [@Всекало,help,nodead] Снятие порчи\n/cast [@Мэдсикер,help,nodead,exists] Снятие порчи',
+		MOUSEWHEELUP = 'm|/cast [@Вердарис,help,nodead,exists] Снятие порчи\n/cast [@Акиноджина,help,nodead,exists] Снятие порчи\n/cast [@Пьедра,help,nodead,exists] Снятие порчи',
+		MOUSEWHEELDOWN = 'm|/cast [@Целестайн,help,nodead] Снятие порчи\n/cast [@Всекало,help,nodead] Снятие порчи\n/cast [@Амандус,help,nodead,exists] Снятие порчи',
 	},
 	ctrl = {
 		NUMPAD2 = 's|Тайфун',

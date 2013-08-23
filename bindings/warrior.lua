@@ -109,6 +109,7 @@ local fury = {
 		[5] = 's|Удар грома',
 	},
 }
+
 pBindings:RegisterKeyBindings('Оружие', bindings.base, warbase, arms)
 pBindings:RegisterKeyBindings('Защита', bindings.base, warbase, prot)
 pBindings:RegisterKeyBindings('Неистовство', bindings.base, warbase, fury)
