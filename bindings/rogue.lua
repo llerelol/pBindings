@@ -4,80 +4,82 @@ local __, bindings = ...
 
 
 local roguebase = {
-	'm|/cast [nostealth] Удар по почкам;[stealth] Гаррота',
-	'm|/cast [nostealth,nomod][@focus,harm,nodead,exists,nostealth,mod:shift] Долой оружие;[stealth] Гаррота',
-	[4] = 'm|/cast [nostealth] Потрошение;[stealth] Гаррота',
-	[5] = 's|Рваная рана',
+	'm|/startattack [nostealth]\n/cast [nostealth] Удар по почкам;[stealth] Гаррота',
+	'm|/cast [nostealth] Долой оружие;[stealth] Гаррота',
+	'm|/startattack [nostealth]\n/cast [nostealth] Рваная рана;[stealth] Подлый трюк',
+	'm|/startattack [nostealth]\n/cast [nostealth] Потрошение;[stealth] Гаррота',
+	'm|/cast Бросок сюрикена\n/cast Метка смерти',
+	's|Прогулка в тенях',
+	'm|/cast [@Миссхантер,help,exists,nodead][@targettarget] Маленькие хитрости',
 	
-	C = 's|Шаг сквозь тень',
-	X = 's|Подготовка',
-	V = 's|Мастер побега',
-	F = 's|Исчезновение',
+	E = 'm|/startattack [nostealth]\n/cast [nostealth] Удар в спину\n/cast [nostealth] Расправа\n/cast [stealth] Умысел\n/cast [stealth] Внезапный удар\n/cast [nostealth] !Незаметность',
+	Q = 'm|/startattack [nostealth]\n/cast [nostealth] Коварный удар\n/cast [stealth] Умысел\n/cast [stealth] Гаррота\n/cast [nostealth] !Незаметность',
+	
 	R = 's|Мясорубка',
-	T = 'm|/cast [@focus,exists,harm,nodead,mod:shift][] Парализующий удар\n/cast !Незаметность',
+	C = 'm|/cast Шаг сквозь тень\n/cast Внезапный порыв',
 	G = 's|Дымовая шашка',
-	B = 's|Ложный выпад',
-	Z = 's|Смена приоритетов',
-	
-	[9] = 'm|/cast [@Миссхантер,help,exists,nodead][@пати2,help,exists,nodead][@танк,help,exists,nodead][@targettarget] Маленькие хитрости',
+	X = 's|Смена приоритетов',
+	T = 'm|/cast [@focus,exists,harm,nodead,mod:shift][] Парализующий удар\n/cast !Незаметность',
+	V = 's|Уловка',
 	TAB = 's|Плащ теней',
-	BUTTON3 = 'm|/use 13',
-	
+	F = 's|Исчезновение',
+	Z = 's|Веер клинков',
+	-- need to find a key for sunder armor
+	BUTTON3 = 'm|/use 13', -- or 's|Каждый за себя',
 	BUTTON4 = 'm|/use [nomod] Паралитический яд;[mod:shift] Похищающий жизнь яд;[mod:ctrl] Калечащий яд;[mod:alt] Дурманящий яд',
 	BUTTON5 = 'm|/use [nomod] Нейтрализующий яд;[mod:shift] Смертоносный яд',
-	--
+	
+	-- naga below
 	NUMPAD1 = 'm|/cast [nostealth,nocombat] Незаметность;[stealth,harm] Ошеломление',
 	END = 'm|/cast [@focus,exists,nodead,harm] Ошеломление',
 	--
 	NUMPAD2 = 'm|/cast [] Пинок\n/cast [@focus] Пинок',
 	DOWN = 'm|/cast  [@focus] Пинок',
 	--
-	NUMPAD3 = 'm|/focus [@mouseover,exists,nodead][]',
-	--PAGEDOWN = 'm|/cast [@focus,harm,nodead,exists] Ослепление',
+	NUMPAD4 = 'm|/target arena1',
+	LEFT = 'm|/cast [@arena1,nodead] Ослепление',
 	--
-	NUMPAD4 = 'm|/cast [@arena1,harm,nodead] Отравляющий укол',
-	LEFT = 'm|/cast [@arena1,harm,nodead] Ослепление',
+	F6 = 'm|/target arena2',
 	--
-	F6 = 'm|/cast [@arena2,harm,nodead] Отравляющий укол',
+	NUMPAD6 = 'm|/target arena3',
+	RIGHT = 'm|/cast [@arena3,nodead] Ослепление',
 	--
-	NUMPAD6 = 'm|/cast [@arena3,harm,nodead] Отравляющий укол',
-	RIGHT = 'm|/cast [@arena3,harm,nodead] Ослепление',
-	--
-	NUMPAD7 = 'm|/cast Огненный боевой конь',
+	NUMPAD7 = 'm|/cast Белый боевой конь-скелет\n/cast Огненный боевой конь',
 	NUMPAD8 = 'm|/cast Крылатый страж',
+	NUMPADMINUS = '',
 	NUMPADPLUS = 'm|/use 15',
-	['`'] = 's|Отвлечение',
-	['¸'] = 's|Отвлечение',
-	
-	stealth = {
-		's|Гаррота',
-		's|Гаррота',
-		[4] = 's|Подлый трюк',
-		E = 's|Внезапный удар',
-		Q = 's|Гаррота',
-	},
-	
+	-- tilde
+	['`'] = 'm|/cast !Отвлечение',
+	['¸'] = 'm|/cast !Отвлечение',
+
 	shift = {
-		's|Боевая готовность',
+		'm|/cast Боевая готовность\n/cast Бросок\n/cast Смертельный бросок',
 		'm|/cast [@focus,exists,harm,nodead] Долой оружие',
-		's|Веер клинков',
-		'm|/cast Бросок\n/cast Смертельный бросок',
+		'',
+		's|Теневые клинки',
+		'm|/startattack [nostealth]\n/cast [nostealth] Кровавый вихрь',
 		
-		G = 'i|Плотные бинты из ветрошерсти',
-		C = 'm|/cast [@focus,harm] Шаг сквозь тень',
 		R = 's|Заживление ран',
+		C = 'm|/cast [@focus,exists,harm,nodead] Шаг сквозь тень\n/cast [@focus,exists,harm,nodead] Пинок',
+		X = 'm|/cast [@focus,exists,harm,nodead] Смена приоритетов\n/cast [@focus,exists,harm,nodead] Удар по почкам',
+		G = 's|Дымовая шашка',
+		E = 's|Отравляющий укол',
+		F = 's|Подготовка',
+		T = 'm|/stopattack\n/stopattack\n/cast Слиться с тенью',
+		Q = 's|Скрывающий покров',
 		
 		SPACE = 'm|/use 6',
 		MOUSEWHEELUP = 'm|/cancelaura Длань защиты\n/stopattack\n/targetenemy\n/cast [harm,nodead][@focus] Ошеломление',
 		MOUSEWHEELDOWN = 'm|/cancelaura Длань защиты\n/stopattack\n/targetenemy\n/cast [harm,nodead][@focus] Ошеломление',
 		
-		F6 = 'm|/cast [@arena2,harm,nodead] Ослепление', -- num5
+		F6 = 'm|/cast [@arena2,nodead] Ослепление', -- num5
 	},
 	
 	ctrl = {
-		E = 's|Отравляющий укол', 
-		Q = 'm|/cast [@focus] Отравляющий укол',
-		R = 'i|Камень здоровья',
+		E = 'm|/cast [@focus.exists,nodead,harm][] Отравляющий укол', 
+		Q = 's|Симбиоз',
+		R = 'm|/use Камень здоровья\n/use Лечебное зелье мастера',
+		T = 'm|/cast [@hyealer] Шаг сквозь тень',
 		
 		NUMPAD4 = 'm|/cast [@arena1,exists,nodead,harm] Смена приоритетов\n/cast [@arena1,exists,nodead,harm] Удар по почкам',
 		F6 = 'm|/cast [@arena2,exists,nodead,harm] Смена приоритетов\n/cast [@arena2,exists,nodead,harm] Удар по почкам', -- num5
@@ -95,49 +97,40 @@ local roguebase = {
 }
 
 local subtlety = {
-	[3] = 'm|/use [nostance] 10\n/cast [nostance] Танец теней; Подлый трюк',
-	E = 'm|/startattack [nostealth]\n/cast [nostance] Удар в спину;Внезапный удар\n/cast !Незаметность',
-	Q = 'm|/startattack [nostealth]\n/cast [nostance] Кровоизлияние;Гаррота\n/cast !Незаметность',
-	
 
-	stealth = {
-		'm|/cast Умысел\n/cast Гаррота',
-		'm|/cast Умысел\n/cast Гаррота',
-		[4] = 'm|/cast Умысел\n/cast Подлый трюк',
-		E = 'm|/cast Умысел\n/cast Внезапный удар',
-		Q = 'm|/cast Умысел\n/cast Гаррота',
-	},
 	shadowDance = {
 		's|Удар по почкам',
-		'm|/cast [nomod] Долой оружие;[@focus,harm,nodead,exists,mod:shift] Долой оружие',
+		's|Долой оружие',
 		'm|/cast Умысел\n/cast Подлый трюк',
 		's|Потрошение',
 		's|Рваная рана',
 		E = 'm|/cast Умысел\n/cast Внезапный удар',
 		Q = 'm|/cast Умысел\n/cast Гаррота',
 	},
+	
+	shift = {
+		[3] = 'm|/use [nostance] 10\n/cast [nostance] Танец теней; Подлый трюк',
+	},
 }
 
 local combat = {
-	[3] = 'm|/cast Выброс адреналина',
-	E = 'm|/startattack [nostealth]\n/cast Коварный удар',
-	Q = 'm|/startattack [nostealth]\n/cast [nostance] Пробивающий удар;Гаррота',
+	
+	E = 'm|/startattack [nostealth]\n/cast Коварный удар\n/cast [nostealth] !Незаметность',
+	Q = 'm|/startattack [nostealth]\n/cast Пробивающий удар\n/cast [nostealth] !Незаметность',
+	
 	C = 's|Шквал клинков',
 	X = 's|Череда убийств',
 	
-	stealth = {
-		E = 's|Коварный удар',
+	shift = {
+		[3] = 's|Выброс адреналина',
 	},
 }
 
 local mutilate = {
-	[3] = 'm|/cast [nostance] Рваная рана; Подлый трюк',
-	[4] = 's|Отравление',
-	[5] = 's|Ложный выпад',
-	E = 'm|/startattack [nostealth]\n/cast [nostance] Расправа; Внезапный удар',
-	Q = 'm|/startattack [nostealth]\n/cast [nostance] Устранение; Гаррота',
-	C = 'm|/cast Шаг сквозь тень',
-	X = 's|Вендетта',
+
+	shift = {
+		[3] = 's|Вендетта',
+	},
 }
 
 
